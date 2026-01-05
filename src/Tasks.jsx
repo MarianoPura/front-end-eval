@@ -7,6 +7,7 @@ function Tasks({ userId }) {
     const [newTaskTitle, setNewTaskTitle] = useState('');
     const [loading, setLoading] = useState(true);
     const [adding, setAdding] = useState(false);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         fetchTasks();
@@ -28,6 +29,7 @@ function Tasks({ userId }) {
         if (!newTaskTitle.trim()) return;
 
         setAdding(true);
+        setError('');
         try {
             const res = await api.post('/tasks', {
                 title: newTaskTitle,
@@ -37,7 +39,7 @@ function Tasks({ userId }) {
             setTasks([...tasks, res.data]);
             setNewTaskTitle('');
         } catch (err) {
-            console.error(err);
+            setError(err.response?.data?.message || 'Failed to add task');
         } finally {
             setAdding(false);
         }
@@ -75,12 +77,16 @@ function Tasks({ userId }) {
                     type="text"
                     placeholder="What needs to be done?"
                     value={newTaskTitle}
-                    onChange={(e) => setNewTaskTitle(e.target.value)}
+                    onChange={(e) => {
+                        setNewTaskTitle(e.target.value);
+                        if (error) setError('');
+                    }}
                 />
                 <button type="submit" disabled={adding || !newTaskTitle.trim()}>
                     {adding ? 'Adding...' : 'Add Task'}
                 </button>
             </form>
+            {error && <p className="task-error">{error}</p>}
 
             {tasks.length === 0 ? (
                 <div className="empty-state">
