@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import api from './api/axios';
 import './Tasks.css';
 
-function Tasks({ userId }) {
+function Tasks() {
     const [tasks, setTasks] = useState([]);
     const [newTaskTitle, setNewTaskTitle] = useState('');
     const [loading, setLoading] = useState(true);
@@ -33,8 +33,7 @@ function Tasks({ userId }) {
         try {
             const res = await api.post('/tasks', {
                 title: newTaskTitle,
-                isDone: false,
-                userId: userId
+                isDone: false
             });
             setTasks([...tasks, res.data]);
             setNewTaskTitle('');
