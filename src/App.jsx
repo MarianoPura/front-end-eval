@@ -10,7 +10,8 @@ function App() {
 
     useEffect(() => {
         const storedUser = localStorage.getItem('user');
-        if (storedUser) {
+        const storedToken = localStorage.getItem('token');
+        if (storedUser && storedToken) {
             setUser(JSON.parse(storedUser));
         }
     }, []);
@@ -21,6 +22,7 @@ function App() {
 
     const handleLogout = () => {
         localStorage.removeItem('user');
+        localStorage.removeItem('token');
         setUser(null);
     };
 
@@ -56,7 +58,7 @@ function App() {
                     <button onClick={handleLogout}>Logout</button>
                 </div>
             </div>
-            <Tasks userId={user.userId} />
+            <Tasks />
         </div>
     );
 }
