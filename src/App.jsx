@@ -32,8 +32,9 @@ function App() {
 
     if (!user) {
         return (
-            <div className="app">
-                <h1>📝 React Task Evaluator</h1>
+            <div className="auth-wrapper">
+                <h1>Task Manager</h1>
+                <p className="tagline">Get things done, one task at a time.</p>
                 {showRegister ? (
                     <Register
                         onRegister={handleRegisterSuccess}
@@ -52,10 +53,10 @@ function App() {
     return (
         <div className="app">
             <div className="header">
-                <h1>📝 React Task Evaluator</h1>
+                <h1>Task Manager</h1>
                 <div className="user-info">
                     <span>{user.email}</span>
-                    <button onClick={handleLogout}>Logout</button>
+                    <button onClick={handleLogout}>Sign out</button>
                 </div>
             </div>
             <Tasks />

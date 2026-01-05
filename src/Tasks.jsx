@@ -74,7 +74,7 @@ function Tasks() {
             <form className="add-task-form" onSubmit={handleAddTask}>
                 <input
                     type="text"
-                    placeholder="What needs to be done?"
+                    placeholder="Add a new task..."
                     value={newTaskTitle}
                     onChange={(e) => {
                         setNewTaskTitle(e.target.value);
@@ -82,14 +82,14 @@ function Tasks() {
                     }}
                 />
                 <button type="submit" disabled={adding || !newTaskTitle.trim()}>
-                    {adding ? 'Adding...' : 'Add Task'}
+                    {adding ? 'Adding...' : 'Add'}
                 </button>
             </form>
             {error && <p className="task-error">{error}</p>}
 
             {tasks.length === 0 ? (
                 <div className="empty-state">
-                    <p>No tasks yet. Add one above!</p>
+                    <p>No tasks yet</p>
                 </div>
             ) : (
                 <ul className="tasks-list">
@@ -108,7 +108,7 @@ function Tasks() {
             )}
 
             <div className="tasks-footer">
-                <span>{tasks.filter(t => !t.isDone).length} tasks remaining</span>
+                <span>{tasks.filter(t => !t.isDone).length} remaining</span>
             </div>
         </div>
     );
