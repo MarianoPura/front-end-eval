@@ -69,6 +69,8 @@ button:focus {
 
 input {
   font-family: inherit;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 input:focus {
@@ -77,4 +79,14 @@ input:focus {
 
 ::selection {
   background: rgba(45, 212, 191, 0.3);
+}
+
+@media (max-width: 480px) {
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input {
+    font-size: 16px;
+  }
 }

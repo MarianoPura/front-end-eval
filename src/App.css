@@ -173,3 +173,75 @@
     padding-top: 3rem;
   }
 }
+
+@media (max-width: 480px) {
+  #root {
+    padding: 0 1rem;
+  }
+
+  .app {
+    padding: 1.5rem 0;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .header h1 {
+    font-size: 1.125rem;
+  }
+
+  .user-info {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .user-info span {
+    font-size: 0.8125rem;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .auth-wrapper {
+    padding: 1.5rem 0;
+  }
+
+  .auth-wrapper h1 {
+    font-size: 1.375rem;
+  }
+
+  .auth-container {
+    padding: 1.25rem;
+    border-radius: 8px;
+  }
+
+  .form-group input {
+    padding: 0.75rem 0.875rem;
+    font-size: 1rem;
+  }
+
+  .auth-container button[type="submit"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  #root {
+    padding: 0 0.75rem;
+  }
+
+  .auth-container {
+    padding: 1rem;
+  }
+
+  .user-info span {
+    max-width: 140px;
+  }
+}

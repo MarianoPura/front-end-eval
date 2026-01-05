@@ -179,3 +179,70 @@
     margin: 0 0 1rem 0;
     font-size: 0.8125rem;
 }
+
+
+
+
+@media (max-width: 480px) {
+    .add-task-form {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .add-task-form input {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+
+    .add-task-form button {
+        padding: 0.75rem 1rem;
+        font-size: 0.9375rem;
+    }
+
+    .tasks-list li {
+        padding: 0.875rem;
+    }
+
+    .task-content {
+        gap: 0.625rem;
+    }
+
+    .checkbox {
+        width: 22px;
+        height: 22px;
+        font-size: 13px;
+    }
+
+    .task-title {
+        font-size: 0.9375rem;
+    }
+
+    .delete-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1.25rem;
+        opacity: 1;
+    }
+
+    .empty-state p {
+        font-size: 0.9375rem;
+    }
+
+    .tasks-footer {
+        font-size: 0.8125rem;
+        text-align: center;
+    }
+}
+
+
+
+
+@media (max-width: 360px) {
+    .tasks-list li {
+        padding: 0.75rem;
+    }
+
+    .task-title {
+        font-size: 0.875rem;
+    }
+}
